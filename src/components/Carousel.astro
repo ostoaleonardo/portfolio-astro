@@ -1,0 +1,50 @@
+---
+import AboutMeCard from "./carouselCards/AboutMeCard.astro";
+import DiscordCard from "./carouselCards/DiscordCard.astro";
+import GitHubCard from "./carouselCards/GitHubCard.astro";
+import InfoCard from "./carouselCards/InfoCard.astro";
+import ProjectsCard from "./carouselCards/ProjectsCard.astro";
+import SocialCard from "./carouselCards/SocialCard.astro";
+import SpotifyCard from "./carouselCards/SpotifyCard.astro";
+import TechnologiesCard from "./carouselCards/TechnologiesCard.astro";
+import WeatherCard from "./carouselCards/WeatherCard.astro";
+import ChatAI from "./carouselCards/ChatAI.astro";
+
+import { getI18N } from "./i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<div
+  class="h-full flex flex-row overflow-x-auto overflow-y-hidden scrollbar-hide"
+>
+  <AboutMeCard />
+  <InfoCard
+    header={i18n.YEARS_OLD_CARD.HEADER}
+    body="21"
+    footer={i18n.YEARS_OLD_CARD.FOOTER}
+    backgroundColor="bg-purple-900"
+  />
+  <TechnologiesCard />
+  <SocialCard
+    label="LinkedIn profile"
+    link="https://www.linkedin.com/in/ostoaleonardo/"
+    backgroundColor="bg-linkedin-light dark:bg-linkedin-dark"
+  />
+  <ProjectsCard />
+  <GitHubCard />
+  <InfoCard
+    body="+3"
+    footer={i18n.EXPERIENCE_CARD.FOOTER}
+    backgroundColor="bg-blue-900"
+  />
+  <SpotifyCard />
+  <SocialCard
+    label="Behance profile"
+    link="https://www.behance.net/ostoaleonardo"
+    backgroundColor="bg-behance-light dark:bg-behance-dark"
+  />
+  <DiscordCard />
+  <WeatherCard />
+  <ChatAI />
+</div>

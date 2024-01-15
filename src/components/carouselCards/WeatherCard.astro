@@ -1,0 +1,28 @@
+---
+import BorderCard from "../borderCard/BorderCard.astro";
+import WeatherWidget from "../carouselCards/WeatherWidget.astro";
+
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<BorderCard size="medium">
+  <div class="relative w-full h-full flex items-center">
+    <!-- <WeatherWidget /> -->
+    <div class="absolute flex flex-col p-4 sm:p-6 md:p-10 md:gap-1 z-50">
+      <div class="flex flex-row items-center gap-1">
+        <span
+          class="text-3xl sm:text-4xl md:text-5xl xl:text-8xl font-archivo-black"
+        >
+          20°
+        </span>
+      </div>
+      <span
+        class="text-sm sm:text-xl md:text-xl xl:text-3xl font-oswald uppercase"
+      >
+        Clouds
+      </span>
+    </div>
+  </div>
+</BorderCard>

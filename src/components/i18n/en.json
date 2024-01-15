@@ -1,0 +1,38 @@
+{
+    "SEO": {
+        "SEO_TITLE": "Duilio Ostoa | Frontend Developer",
+        "SEO_DESCRIPTION": "Portfolio of Duilio Ostoa, FrontEnd Developer"
+    },
+    "ABOUT_ME_CARD": {
+        "TITLE": "About me",
+        "DESCRIPTION": "Software Engineer and Frontend and Mobile Developer using ReactJS and React Native."
+    },
+    "YEARS_OLD_CARD": {
+        "HEADER": "Age",
+        "FOOTER": "Years old"
+    },
+    "TECHNOLOGIES_CARD": {
+        "TITLE": "Tech",
+        "SUBTITLE": "nologies"
+    },
+    "PROJECTS_CARD": {
+        "TITLE": "Projects"
+    },
+    "SOCIAL_CARD": {
+        "SUBTITLE": "Profile"
+    },
+    "EXPERIENCE_CARD": {
+        "TITLE": "Experience",
+        "FOOTER": "Years of experience"
+    },
+    "SPOTIFY_CARD": {
+        "TITLE": "Spotify",
+        "SUBTITLE": "Listening"
+    },
+    "WEATHER_CARD": {
+        "TITLE": "Weather"
+    },
+    "CHAT_AI_MODAL": {
+        "TITLE": "Chat with my AI bot"
+    }
+}

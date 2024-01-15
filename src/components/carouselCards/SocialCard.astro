@@ -1,0 +1,25 @@
+---
+import BorderCard from "../borderCard/BorderCard.astro";
+import IconCard from "../icons/IconCard.astro";
+
+interface Props {
+  icon?: any;
+  label: string;
+  link: string;
+  backgroundColor: string;
+}
+
+const { icon, label, link, backgroundColor = "bg-zinc-800" } = Astro.props;
+---
+
+<BorderCard size="small" titleBottom={label.split(" ")[0]}>
+  <a
+    href={link}
+    target="_blank"
+    aria-label={label}
+    class={`w-full h-full flex justify-center items-center p-10 ${backgroundColor}`}
+  >
+    <IconCard />
+    {icon}
+  </a>
+</BorderCard>

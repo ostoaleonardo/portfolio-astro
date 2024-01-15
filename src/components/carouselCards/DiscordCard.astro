@@ -1,0 +1,17 @@
+---
+import BorderCard from "../borderCard/BorderCard.astro";
+import Discord from "../icons/Discord.astro";
+---
+
+<BorderCard size="small" titleBottom="Discord">
+  <div
+    class="w-full h-full flex justify-center items-center text-slate-100 bg-discord-light dark:bg-discord-dark"
+  >
+    <Discord className="hidden group-hover:flex text-slate-100 w-[50%]" />
+    <span
+      class="flex group-hover:hidden text-[2.5vw] font-archivo-black font-outline-1 uppercase"
+    >
+      Offline
+    </span>
+  </div>
+</BorderCard>

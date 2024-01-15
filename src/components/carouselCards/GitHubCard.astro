@@ -1,0 +1,15 @@
+---
+import BorderCard from "../borderCard/BorderCard.astro";
+import TitleCard from "../borderCard/TitleCard.astro";
+import IconCard from "../icons/IconCard.astro";
+---
+
+<BorderCard size="medium" titleTop="GitHub">
+  <a
+    href="/projects"
+    class="w-full h-full flex flex-col bg-slate-400 dark:bg-github bg-projects-card bg-cover p-2 md:p-4 cursor-pointer"
+  >
+    <IconCard />
+    <TitleCard text="GitHub" />
+  </a>
+</BorderCard>

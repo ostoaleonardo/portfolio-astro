@@ -1,0 +1,28 @@
+---
+import BorderCard from "../borderCard/BorderCard.astro";
+---
+
+<BorderCard size="medium" titleBottom="Spotify">
+  <div class="w-full h-full flex flex-col justify-end bg-cover bg-center p-4">
+    <div class="hidden group-hover:flex flex-col">
+      <div class="w-fit bg-spotify px-1 md:px-2 md:py-1 max-lg:mb-0 mb-2">
+        <span
+          class="text-[0.4rem] md:text-lg text-neutral-900 font-oswald uppercase"
+        >
+          Recently Played
+        </span>
+      </div>
+
+      <span
+        class="text-white text-sm sm:text-xl md:text-2xl xl:text-7xl font-archivo-black whitespace-normal line-clamp-1 uppercase"
+      >
+        Title
+      </span>
+      <span
+        class="text-white text-xs sm:text-lg md:text-xl xl:text-2xl font-oswald opacity-70 whitespace-normal line-clamp-1 uppercase"
+      >
+        Artist
+      </span>
+    </div>
+  </div>
+</BorderCard>

@@ -5,10 +5,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const { currentLocale } = Astro;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -17,25 +18,52 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-neutral-900 bg-pattern bg-repeat">
     <slot />
   </body>
 </html>
+
 <style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
+  @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+  .font-outline-1 {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
   }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
+
+  .font-outline-2 {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+  }
+
+  .font-outline-4 {
+    -webkit-text-stroke: 4px white;
+    color: transparent;
+  }
+
+  .font-archivo-black {
+    font-family: "Archivo Black", sans-serif;
+  }
+
+  .font-oswald {
+    font-family: "Oswald", sans-serif;
+  }
+
+  .cursor {
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    border-width: 3px;
+    pointer-events: none;
+    border-color: white;
+    transform: translate(-50%, -50%);
+  }
+
+  .light-bar {
+    position: fixed;
+    width: 24rem;
+    height: 120%;
+    transform: translate(-50%);
   }
 </style>
