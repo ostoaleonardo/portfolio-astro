@@ -1,0 +1,36 @@
+---
+import Sort from "../icons/Sort.astro";
+
+interface Language {
+  code: string;
+  href: string;
+  name: string;
+}
+
+const { currentLocale = "en" } = Astro;
+
+const LOCALES: Record<string, Language> = {
+  en: {
+    code: "en",
+    href: "/es",
+    name: "Español",
+  },
+  es: {
+    code: "es",
+    href: "/",
+    name: "English",
+  },
+};
+
+const currentLanguage = LOCALES[currentLocale];
+---
+
+<a
+  href={currentLanguage.href}
+  class="w-full flex items-center text-neutral-900 hover:bg-neutral-100 font-oswald uppercase px-2 py-1"
+>
+  <Sort />
+  <span class="w-full text-end">
+    {currentLanguage.name}
+  </span>
+</a>

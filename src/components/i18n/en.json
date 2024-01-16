@@ -3,6 +3,11 @@
         "SEO_TITLE": "Duilio Ostoa | Frontend Developer",
         "SEO_DESCRIPTION": "Portfolio of Duilio Ostoa, FrontEnd Developer"
     },
+    "SETTINGS": {
+        "SETTINGS_TITLE": "Settings",
+        "LIGHT_MODE": "Light Mode",
+        "DARK_MODE": "Dark Mode"
+    },
     "ABOUT_ME_CARD": {
         "TITLE": "About me",
         "DESCRIPTION": "Software Engineer and Frontend and Mobile Developer using ReactJS and React Native."

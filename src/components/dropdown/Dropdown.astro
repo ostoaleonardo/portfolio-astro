@@ -1,0 +1,27 @@
+---
+import Menu from "../icons/Menu.astro";
+import ThemeButton from "./ThemeButton.astro";
+import LanguageButton from "./LanguageButton.astro";
+
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<section class="absolute top-12 right-0 flex flex-col items-end group">
+  <div class="w-fit bg-white aspectd-square leading-none px-2 py-1">
+    <span
+      class="flex items-center text-neutral-900 text-xl font-oswald uppercase gap-2"
+    >
+      <Menu />
+      {i18n.SETTINGS.SETTINGS_TITLE}
+    </span>
+  </div>
+
+  <div
+    class="hidden group-hover:flex flex-col w-36 text-sm md:text-lg bg-white transition-all"
+  >
+    <ThemeButton />
+    <LanguageButton />
+  </div>
+</section>

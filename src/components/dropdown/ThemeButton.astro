@@ -1,0 +1,19 @@
+---
+import Sun from "../icons/Sun.astro";
+---
+
+<button
+  id="theme-button"
+  class="w-full flex items-center text-neutral-900 hover:bg-neutral-100 font-oswald uppercase px-2 py-1"
+>
+  <Sun />
+  <span class="w-full text-end"> Change Theme</span>
+</button>
+
+<script>
+  const themeButton = document.getElementById("theme-button");
+
+  themeButton?.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+</script>
