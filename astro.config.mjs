@@ -13,6 +13,8 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  output: "server",
-  adapter: vercel()
+  output: "hybrid",
+  adapter: vercel({
+    edgeMiddleware: true,
+  })
 });
