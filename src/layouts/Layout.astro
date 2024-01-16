@@ -18,7 +18,7 @@ const { currentLocale } = Astro;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-neutral-900 bg-pattern bg-repeat">
+  <body class="bg-neutral-900 bg-pattern bg-repeat select-none">
     <slot />
   </body>
 </html>
@@ -48,22 +48,5 @@ const { currentLocale } = Astro;
 
   .font-oswald {
     font-family: "Oswald", sans-serif;
-  }
-
-  .cursor {
-    position: fixed;
-    width: 2rem;
-    height: 2rem;
-    border-width: 3px;
-    pointer-events: none;
-    border-color: white;
-    transform: translate(-50%, -50%);
-  }
-
-  .light-bar {
-    position: fixed;
-    width: 24rem;
-    height: 120%;
-    transform: translate(-50%);
   }
 </style>
