@@ -9,6 +9,8 @@ import SpotifyCard from "./carouselCards/SpotifyCard.astro";
 import TechnologiesCard from "./carouselCards/TechnologiesCard.astro";
 import WeatherCard from "./carouselCards/WeatherCard.astro";
 import ChatAI from "./carouselCards/ChatAI.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Behance from "./icons/Behance.astro";
 
 import { getI18N } from "./i18n";
 const { currentLocale } = Astro;
@@ -23,27 +25,31 @@ const i18n = getI18N({ currentLocale });
     header={i18n.YEARS_OLD_CARD.HEADER}
     body="21"
     footer={i18n.YEARS_OLD_CARD.FOOTER}
-    backgroundColor="bg-purple-900"
+    backgroundColor="bg-purple-600 dark:bg-purple-900"
   />
   <TechnologiesCard />
   <SocialCard
     label="LinkedIn profile"
     link="https://www.linkedin.com/in/ostoaleonardo/"
     backgroundColor="bg-linkedin-light dark:bg-linkedin-dark"
-  />
+  >
+    <LinkedIn />
+  </SocialCard>
   <ProjectsCard />
   <GitHubCard />
   <InfoCard
     body="+3"
     footer={i18n.EXPERIENCE_CARD.FOOTER}
-    backgroundColor="bg-sky-900"
+    backgroundColor="bg-sky-600 dark:bg-sky-800"
   />
   <SpotifyCard />
   <SocialCard
     label="Behance profile"
     link="https://www.behance.net/ostoaleonardo"
     backgroundColor="bg-behance-light dark:bg-behance-dark"
-  />
+  >
+    <Behance />
+  </SocialCard>
   <DiscordCard />
   <WeatherCard />
   <ChatAI />

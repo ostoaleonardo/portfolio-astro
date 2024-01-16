@@ -17,19 +17,11 @@ export default {
 				},
 				'behance': {
 					light: '#3278ff',
-					dark: '#000b1d',
+					dark: '#1e293b',
 				},
 				'twitter': {
 					light: '#179cf0',
 					dark: '#0d68a1',
-				},
-				'purple': {
-					light: '#6b5ce5',
-					dark: '#4c4681',
-				},
-				'red': {
-					light: '#f31260',
-					dark: '#ed4b50',
 				}
 			},
 			backgroundImage: {
