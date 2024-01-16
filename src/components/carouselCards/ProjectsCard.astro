@@ -11,9 +11,48 @@ const i18n = getI18N({ currentLocale });
 <BorderCard size="medium" titleTop={i18n.PROJECTS_CARD.TITLE}>
   <a
     href="/projects"
-    class="w-full h-full flex flex-col bg-slate-400 dark:bg-neutral-800 bg-projects-card bg-cover p-2 md:p-4 cursor-pointer"
+    class="w-full h-full flex flex-col bg-slate-400 dark:bg-neutral-800 p-2 md:p-4 cursor-pointer"
   >
     <IconCard />
     <TitleCard text={i18n.PROJECTS_CARD.TITLE} />
+
+    <div class="w-full h-full flex flex-col justify-end">
+      <div class="w-fit flex items-center">
+        <span
+          class="text-xs text-neutral-200 font-mono flex whitespace-nowrap line-clamp-1 typing"
+        >
+          npm install everything
+        </span>
+        <div class="w-2 h-4 bg-green-600 pulse"></div>
+      </div>
+    </div>
   </a>
 </BorderCard>
+
+<style>
+  .typing {
+    animation: typing 3s steps(40, end) normal;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .pulse {
+    animation: pulse 1s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>

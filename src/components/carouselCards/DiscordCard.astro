@@ -1,17 +1,47 @@
 ---
 import BorderCard from "../borderCard/BorderCard.astro";
 import Discord from "../icons/Discord.astro";
+
+import { getDiscordStatus } from "../../api/discord.ts";
+
+const discord = await getDiscordStatus();
 ---
 
 <BorderCard size="small" titleBottom="Discord">
   <div
     class="w-full h-full flex justify-center items-center text-slate-100 bg-discord-light dark:bg-discord-dark"
   >
-    <Discord className="hidden group-hover:flex text-slate-100 w-[50%]" />
     <span
       class="flex group-hover:hidden text-[2.5vw] font-archivo-black font-outline-1 uppercase"
     >
-      Offline
+      {discord?.status}
     </span>
+
+    <Discord className="hidden group-hover:flex text-slate-100 w-[50%]" />
+    <div
+      class="hidden group-hover:flex absolute right-2 bottom-2 md:right-3 md:bottom-3 xl:right-4 xl:bottom-4 flex-row justify-center items-center"
+    >
+      <div class="flex flex-col justify-center items-end">
+        <span
+          class="text-neutral-100 sm:text-xs xl:text-sm font-oswald uppercase"
+        >
+          {discord?.activity}
+        </span>
+        <span
+          class="text-neutral-100 font-medium sm:text-xs md:text-xs xl:text-sm font-oswald opacity-70 uppercase"
+        >
+          {discord?.details}
+        </span>
+      </div>
+      {
+        discord?.image && (
+          <img
+            class="h-4 w-4 md:h-8 md:w-8 xl:h-10 xl:w-10 ml-2"
+            src={discord?.image}
+            alt="Image Activity"
+          />
+        )
+      }
+    </div>
   </div>
 </BorderCard>

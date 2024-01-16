@@ -34,6 +34,8 @@ export default {
 			},
 			backgroundImage: {
 				'pattern': "url('/src/assets/images/pattern.png')",
+				'github-card': "url('/src/assets/images/github.webp')",
+				'projects-card': "url('/src/assets/images/projects.webp')",
 			},
 		},
 	},

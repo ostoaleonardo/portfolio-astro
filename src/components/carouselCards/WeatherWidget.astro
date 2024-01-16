@@ -1,8 +1,25 @@
-<div class="h-full w-full flex items-center">
+---
+interface Props {
+  isNight: boolean;
+}
+
+const { isNight } = Astro.props;
+const bgkTime = isNight ? "bg-[#2f3475]" : "bg-[#98cfff]";
+---
+
+<div class={`h-full w-full flex items-center ${bgkTime}`}>
   <div class="absolute top-0 right-0 widget">
-    <div class="moon-night">
-      <div class="moon"></div>
-    </div>
+    {
+      isNight ? (
+        <div class="moon-night">
+          <div class="moon" />
+        </div>
+      ) : (
+        <div class="sunny-day">
+          <div class="sun" />
+        </div>
+      )
+    }
   </div>
 </div>
 

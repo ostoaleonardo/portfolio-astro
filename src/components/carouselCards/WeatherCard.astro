@@ -2,26 +2,36 @@
 import BorderCard from "../borderCard/BorderCard.astro";
 import WeatherWidget from "../carouselCards/WeatherWidget.astro";
 
-import { getI18N } from "../i18n";
+import { getWeather } from "../../api/openWeather.ts";
+
 const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
+
+const weather = await getWeather("20.117", "-98.7333", currentLocale);
+
+const isNight = weather?.icon.includes("n");
+const colorTime = isNight ? "text-neutral-100" : "text-neutral-900";
 ---
 
 <BorderCard size="medium">
   <div class="relative w-full h-full flex items-center">
-    <!-- <WeatherWidget /> -->
+    <WeatherWidget isNight={isNight} />
     <div class="absolute flex flex-col p-4 sm:p-6 md:p-10 md:gap-1 z-50">
       <div class="flex flex-row items-center gap-1">
         <span
-          class="text-3xl sm:text-4xl md:text-5xl xl:text-8xl font-archivo-black"
+          class={`text-3xl sm:text-4xl md:text-5xl xl:text-8xl font-archivo-black ${colorTime}`}
         >
-          20°
+          {Math.round(weather?.temp) + "°C"}
         </span>
+        <img
+          src={weather?.icon}
+          alt="weather icon"
+          class="w-10 h-10 xl:w-24 xl:h-24"
+        />
       </div>
       <span
-        class="text-sm sm:text-xl md:text-xl xl:text-3xl font-oswald uppercase"
+        class={`text-sm sm:text-xl md:text-xl xl:text-3xl font-oswald uppercase ${colorTime}`}
       >
-        Clouds
+        {weather?.description}
       </span>
     </div>
   </div>
