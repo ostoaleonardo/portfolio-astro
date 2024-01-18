@@ -2,10 +2,10 @@ const API_KEY = import.meta.env.OPEN_WEATHER_API_KEY
 const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather"
 const ICON_URL = "https://openweathermap.org/img/wn/"
 
-export const getWeather = async (lat: string, lon: string, lang: string = "es") => {
+export const getWeather = async (lang: string = "es") => {
     const params = new URLSearchParams({
-        lat,
-        lon,
+        lat: "20.117",
+        lon: "-98.7333",
         appid: API_KEY,
         units: "metric",
         lang

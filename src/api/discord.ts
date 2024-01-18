@@ -1,18 +1,14 @@
-import type { APIRoute } from "astro"
-
 const ENDPOINT = "https://api.lanyard.rest/v1/users/771148579356016650"
 const ASSETS_URL = "https://cdn.discordapp.com/app-assets/"
 
-export const GET: APIRoute = async () => {
+export const getDiscordStatus = async () => {
     const discord = await fetch(ENDPOINT)
         .then((res) => res.json())
         .then((data) => data.data)
         .then((data) => formatDiscordStatus(data))
         .catch(() => { return { status: "offline", activity: "", details: "", image: "" } })
 
-    return new Response(
-        JSON.stringify(discord)
-    )
+    return discord
 }
 
 const formatDiscordStatus = (discord: any) => {

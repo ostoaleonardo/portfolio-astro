@@ -3,7 +3,7 @@ import BorderCard from "../borderCard/BorderCard.astro";
 import TitleCard from "../borderCard/TitleCard.astro";
 import IconCard from "../icons/IconCard.astro";
 
-import { retrieveContributionData } from "../../pages/api/github.ts";
+import { retrieveContributionData } from "../../api/github.ts";
 
 const contributions = await retrieveContributionData();
 

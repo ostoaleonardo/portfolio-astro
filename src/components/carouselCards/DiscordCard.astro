@@ -2,10 +2,9 @@
 import BorderCard from "../borderCard/BorderCard.astro";
 import Discord from "../icons/Discord.astro";
 
-import { GET } from "../../pages/api/discord.ts";
+import { getDiscordStatus } from "../../api/discord.ts";
 
-const response = await GET(Astro);
-const discord = await response.json();
+const discord = await getDiscordStatus();
 ---
 
 <BorderCard size="small" titleBottom="Discord">

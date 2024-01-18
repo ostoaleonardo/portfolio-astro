@@ -1,9 +1,7 @@
 ---
-export const prerender = false;
-
 import BorderCard from "../borderCard/BorderCard.astro";
 
-import { getRecentlyPlayed } from "../../pages/api/spotify.ts";
+import { getRecentlyPlayed } from "../../api/spotify.ts";
 
 const track = await getRecentlyPlayed();
 

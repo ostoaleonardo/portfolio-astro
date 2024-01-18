@@ -2,14 +2,13 @@
 import BorderCard from "../borderCard/BorderCard.astro";
 import WeatherWidget from "../carouselCards/WeatherWidget.astro";
 
-import { getWeather } from "../../pages/api/openWeather.ts";
+import { getWeather } from "../../api/openWeather.ts";
 
 const { currentLocale } = Astro;
 
-const weather = await getWeather("20.117", "-98.7333", currentLocale);
+const weather = await getWeather(currentLocale);
 
 const isNight = weather?.icon.includes("n");
-const colorTime = isNight ? "text-neutral-100" : "text-neutral-900";
 ---
 
 <BorderCard size="medium">
@@ -18,7 +17,13 @@ const colorTime = isNight ? "text-neutral-100" : "text-neutral-900";
     <div class="absolute flex flex-col p-4 sm:p-6 md:p-10 md:gap-1 z-50">
       <div class="flex flex-row items-center gap-1">
         <span
-          class={`text-3xl sm:text-4xl md:text-5xl xl:text-8xl font-archivo-black ${colorTime}`}
+          class:list={[
+            "text-3xl sm:text-4xl md:text-5xl xl:text-8xl font-archivo-black",
+            {
+              "text-neutral-100": isNight,
+              "text-neutral-900": !isNight,
+            },
+          ]}
         >
           {Math.round(weather?.temp) + "°C"}
         </span>
@@ -29,7 +34,13 @@ const colorTime = isNight ? "text-neutral-100" : "text-neutral-900";
         />
       </div>
       <span
-        class={`text-sm sm:text-xl md:text-xl xl:text-3xl font-oswald uppercase ${colorTime}`}
+        class:list={[
+          "text-sm sm:text-xl md:text-xl xl:text-3xl font-oswald uppercase",
+          {
+            "text-neutral-100": isNight,
+            "text-neutral-900": !isNight,
+          },
+        ]}
       >
         {weather?.description}
       </span>
