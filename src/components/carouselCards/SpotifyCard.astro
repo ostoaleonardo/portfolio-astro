@@ -1,7 +1,7 @@
 ---
 import BorderCard from "../borderCard/BorderCard.astro";
 
-import { getRecentlyPlayed } from "../../api/spotify.ts";
+import { getRecentlyPlayed } from "@/api/spotify";
 
 const track = await getRecentlyPlayed();
 

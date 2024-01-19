@@ -1,10 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ProjectCard from "../../components/carouselCards/Project/ProjectCard.astro";
-import ArrowLeft from "../../components/icons/ArrowLeft.astro";
-import ArrowRight from "../../components/icons/ArrowRight.astro";
-import ArrowLeftBox from "../../components/icons/ArrowLeftBox.astro";
-import { PROJECTS } from "../../constants/projects.ts";
+import Layout from "@/layouts/Layout.astro";
+import ProjectCard from "@/components/carouselCards/Project/ProjectCard.astro";
+import ArrowLeft from "@/components/icons/ArrowLeft.astro";
+import ArrowRight from "@/components/icons/ArrowRight.astro";
+import ArrowLeftBox from "@/components/icons/ArrowLeftBox.astro";
+import { PROJECTS } from "@/constants/projects.ts";
 
 const { id } = Astro.params;
 
@@ -109,7 +109,7 @@ let currentImageSrc = PROJECT.images[0].src;
 </Layout>
 
 <script>
-  import { PROJECTS } from "../../constants/projects";
+  import { PROJECTS } from "@/constants/projects";
 
   const id = document.getElementById("project-id")?.textContent;
 

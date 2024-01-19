@@ -1,17 +1,17 @@
-import tailtools1 from '../assets/projects/tailtools1.webp';
-import tailtools2 from '../assets/projects/tailtools2.webp';
-import tailtools3 from '../assets/projects/tailtools3.webp';
-import tailtools4 from '../assets/projects/tailtools4.webp';
-import wavestify1 from '../assets/projects/wavestify1.webp';
-import wavestify2 from '../assets/projects/wavestify2.webp';
-import store1 from '../assets/projects/store1.webp';
-import store2 from '../assets/projects/store2.webp';
-import store3 from '../assets/projects/store3.webp';
-import movies1 from '../assets/projects/movies1.webp';
-import movies2 from '../assets/projects/movies2.webp';
-import minecraft1 from '../assets/projects/minecraft1.webp';
-import minecraft2 from '../assets/projects/minecraft2.webp';
-import minecraft3 from '../assets/projects/minecraft3.webp';
+import tailtools1 from '@/assets/projects/tailtools1.webp';
+import tailtools2 from '@/assets/projects/tailtools2.webp';
+import tailtools3 from '@/assets/projects/tailtools3.webp';
+import tailtools4 from '@/assets/projects/tailtools4.webp';
+import wavestify1 from '@/assets/projects/wavestify1.webp';
+import wavestify2 from '@/assets/projects/wavestify2.webp';
+import store1 from '@/assets/projects/store1.webp';
+import store2 from '@/assets/projects/store2.webp';
+import store3 from '@/assets/projects/store3.webp';
+import movies1 from '@/assets/projects/movies1.webp';
+import movies2 from '@/assets/projects/movies2.webp';
+import minecraft1 from '@/assets/projects/minecraft1.webp';
+import minecraft2 from '@/assets/projects/minecraft2.webp';
+import minecraft3 from '@/assets/projects/minecraft3.webp';
 
 export const PROJECTS = [
     {
