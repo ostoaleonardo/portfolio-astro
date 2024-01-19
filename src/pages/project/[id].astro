@@ -1,0 +1,156 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectCard from "../../components/carouselCards/Project/ProjectCard.astro";
+import ArrowLeft from "../../components/icons/ArrowLeft.astro";
+import ArrowRight from "../../components/icons/ArrowRight.astro";
+import ArrowLeftBox from "../../components/icons/ArrowLeftBox.astro";
+import { PROJECTS } from "../../constants/projects.ts";
+
+const { id } = Astro.params;
+
+const PROJECT = PROJECTS[Number(id) - 1] || PROJECTS[0];
+
+const previusId = id === "1" ? PROJECTS.length : Number(id) - 1;
+const nextId = id === PROJECTS.length.toString() ? 1 : Number(id) + 1;
+
+let currentImageSrc = PROJECT.images[0].src;
+---
+
+<Layout title="Projects" description="Projects I've worked on.">
+  <main class="h-screen uppercase p-6">
+    <header class="flex items-center justify-between mb-6">
+      <h1
+        class="text-3xl text-slate-900 dark:text-slate-100/80 font-archivo-black"
+      >
+        Projects / Work
+      </h1>
+      <div class="text-xl text-green-400 font-oswald bg-zinc-800 px-2"></div>
+    </header>
+    <section class="relative w-full h-[calc(100%-92px)]">
+      <div class="absolute right-0">
+        <ProjectCard project={PROJECT} />
+      </div>
+      <div class="relative w-2/3 h-full flex items-center justify-center group">
+        <img
+          id="project-image-blur"
+          alt="image of project"
+          src={currentImageSrc}
+          class="absolute w-[70%] h-auto object-contain blur-md group-hover:blur-xl animate-pulse transition-all"
+        />
+        <img
+          id="project-image"
+          alt="image of project"
+          src={currentImageSrc}
+          class="w-[70%] h-auto object-contain z-10"
+        />
+
+        <div
+          class="absolute left-0 my-auto flex flex-col items-center text-slate-100/50"
+        >
+          <button
+            id="previus-button"
+            class="w-10 h-10 flex items-center justify-center rotate-90 hover:text-slate-100 transition-all"
+          >
+            <ArrowLeft />
+          </button>
+          <div class="text-2xl font-archivo-black inline-flex">
+            <span id="project-image-index" class="text-slate-100">1</span>
+            <span class="text-slate-100/50">
+              /{PROJECT.images.length}
+            </span>
+          </div>
+          <button
+            id="next-button"
+            class="w-10 h-10 flex items-center justify-center rotate-90 hover:text-slate-100 transition-all"
+          >
+            <ArrowRight />
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="absolute bottom-10 right-4 w-72">
+      <div
+        class="flex flex-row items-center justify-center text-slate-100/50 gap-2"
+      >
+        <a
+          href={"/project/" + previusId}
+          class="w-24 h-24 flex items-center justify-center hover:text-slate-100 transition-all"
+        >
+          <ArrowLeft />
+        </a>
+        <div class="text-5xl font-archivo-black inline-flex">
+          <span id="project-id" class="text-slate-100">
+            {id}
+          </span>
+          <span class="text-slate-100/50">
+            /{PROJECTS.length}
+          </span>
+        </div>
+        <a
+          href={"/project/" + nextId}
+          class="w-24 h-24 flex items-center justify-center hover:text-slate-100 transition-all"
+        >
+          <ArrowRight />
+        </a>
+      </div>
+    </div>
+    <footer class="w-full">
+      <a
+        href="/"
+        class="flex items-center text-slate-100/50 font-oswald hover:text-slate-100 transition-all"
+      >
+        <span class="w-6 h-6 mr-2">
+          <ArrowLeftBox />
+        </span>
+        Back
+      </a>
+    </footer>
+  </main>
+</Layout>
+
+<script>
+  import { PROJECTS } from "../../constants/projects";
+
+  const id = document.getElementById("project-id")?.textContent;
+
+  const project = PROJECTS[Number(id) - 1] || PROJECTS[0];
+
+  let currentImage = 0;
+  let currentImageSrc = project.images[currentImage].src;
+
+  const spanIndex = document.getElementById(
+    "project-image-index"
+  ) as HTMLSpanElement;
+
+  const projectImage = document.getElementById(
+    "project-image"
+  ) as HTMLImageElement;
+  const projectImageBlur = document.getElementById(
+    "project-image-blur"
+  ) as HTMLImageElement;
+
+  const previusButton = document.getElementById(
+    "previus-button"
+  ) as HTMLButtonElement;
+  const nextButton = document.getElementById(
+    "next-button"
+  ) as HTMLButtonElement;
+
+  previusButton.addEventListener("click", () => {
+    currentImage =
+      currentImage === 0 ? project.images.length - 1 : currentImage - 1;
+    currentImageSrc = project.images[currentImage].src;
+    projectImage.src = currentImageSrc;
+    projectImageBlur.src = currentImageSrc;
+    spanIndex.textContent = `${currentImage + 1}`;
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentImage =
+      currentImage === project.images.length - 1 ? 0 : currentImage + 1;
+    currentImageSrc = project.images[currentImage].src;
+    projectImage.src = currentImageSrc;
+    projectImageBlur.src = currentImageSrc;
+    spanIndex.textContent = `${currentImage + 1}`;
+  });
+</script>

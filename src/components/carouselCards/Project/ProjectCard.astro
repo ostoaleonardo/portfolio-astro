@@ -1,0 +1,62 @@
+---
+import ArrowRightUp from "../../icons/ArrowRightUp.astro";
+import GitHub from "../../icons/GitHub.astro";
+import Chip from "./Chip.astro";
+import Link from "./Link.astro";
+
+interface Project {
+  title: string;
+  type: string;
+  description: string;
+  images: ImageMetadata[];
+  technologies: string[];
+  demo?: string;
+  github?: string;
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="min-w-96 max-w-96 flex flex-col justify-between">
+  <header class="flex flex-col bg-zinc-800 p-4">
+    <div class="w-full flex flex-row justify-between">
+      <h2
+        id="project-card-title"
+        class="text-slate-100 text-3xl font-archivo-black"
+      >
+        {project.title}
+      </h2>
+      <div class="flex items-center justify-center gap-2">
+        {
+          project.demo && (
+            <Link href={project.demo}>
+              <ArrowRightUp />
+            </Link>
+          )
+        }
+        {
+          project.github && (
+            <Link href={project.github}>
+              <GitHub />
+            </Link>
+          )
+        }
+      </div>
+    </div>
+    <span class="text-slate-100/70 font-oswald uppercase">
+      {project.type}
+    </span>
+  </header>
+  <section class="flex flex-col bg-zinc-700/80 p-4">
+    <section class="flex flex-wrap gap-1 mt-1">
+      {project.technologies.map((technology) => <Chip label={technology} />)}
+    </section>
+    <p class="text-slate-100/80 text-base font-oswald mt-4">
+      {project.description}
+    </p>
+  </section>
+</article>
