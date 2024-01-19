@@ -25,6 +25,7 @@ export const PROJECTS = [
             tailtools4,
         ],
         technologies: ['React', 'TypeScript', 'Tailwind', 'NextUI'],
+        demo: 'https://tailtools.vercel.app/',
         github: 'https://github.com/ostoaleonardo/tailtools',
     },
     {
