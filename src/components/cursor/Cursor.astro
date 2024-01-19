@@ -1,23 +1,12 @@
 <div class="cursor mix-blend-difference z-[9999]"></div>
-<div
-  class="light-bar bg-gradient-to-b from-blue-50 from-15% to-blue-200 hidden xl:block"
->
-</div>
 
 <script>
   const cursor = document.querySelector(".cursor");
-  const lightBar = document.querySelector(".light-bar");
 
   document.addEventListener("mousemove", (e) => {
-    lightBar?.setAttribute("style", "left: " + e.clientX + "px;");
     cursor?.setAttribute(
       "style",
       "top: " + e.pageY + "px; left: " + e.pageX + "px;"
-    );
-
-    lightBar?.animate(
-      { left: e.pageX + "px" },
-      { duration: 1000, fill: "forwards" }
     );
   });
 
@@ -39,12 +28,5 @@
     pointer-events: none;
     border-color: white;
     transform: translate(-50%, -50%);
-  }
-
-  .light-bar {
-    position: fixed;
-    width: 24rem;
-    height: 120%;
-    transform: translate(-50%);
   }
 </style>

@@ -1,0 +1,26 @@
+<div
+  class="light-bar bg-gradient-to-b from-blue-50 from-15% to-blue-200 hidden xl:block"
+>
+</div>
+
+<script>
+  const lightBar = document.querySelector(".light-bar");
+
+  document.addEventListener("mousemove", (e) => {
+    lightBar?.setAttribute("style", "left: " + e.clientX + "px;");
+
+    lightBar?.animate(
+      { left: e.pageX + "px" },
+      { duration: 1000, fill: "forwards" }
+    );
+  });
+</script>
+
+<style>
+  .light-bar {
+    position: fixed;
+    width: 24rem;
+    height: 120%;
+    transform: translate(-50%);
+  }
+</style>
