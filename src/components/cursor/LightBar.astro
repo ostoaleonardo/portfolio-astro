@@ -4,15 +4,17 @@
 </div>
 
 <script>
-  const lightBar = document.querySelector(".light-bar");
+  document.addEventListener("astro:page-load", () => {
+    const lightBar = document.querySelector(".light-bar");
 
-  document.addEventListener("mousemove", (e) => {
-    lightBar?.setAttribute("style", "left: " + e.clientX + "px;");
+    document.addEventListener("mousemove", (e) => {
+      lightBar?.setAttribute("style", "left: " + e.clientX + "px;");
 
-    lightBar?.animate(
-      { left: e.pageX + "px" },
-      { duration: 1000, fill: "forwards" }
-    );
+      lightBar?.animate(
+        { left: e.pageX + "px" },
+        { duration: 1000, fill: "forwards" }
+      );
+    });
   });
 </script>
 

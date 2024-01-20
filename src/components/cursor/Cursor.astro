@@ -1,21 +1,23 @@
 <div class="cursor mix-blend-difference z-[9999]"></div>
 
 <script>
-  const cursor = document.querySelector(".cursor");
+  document.addEventListener("astro:page-load", () => {
+    const cursor = document.querySelector(".cursor");
 
-  document.addEventListener("mousemove", (e) => {
-    cursor?.setAttribute(
-      "style",
-      "top: " + e.pageY + "px; left: " + e.pageX + "px;"
-    );
-  });
+    document.addEventListener("mousemove", (e) => {
+      cursor?.setAttribute(
+        "style",
+        "top: " + e.pageY + "px; left: " + e.pageX + "px;"
+      );
+    });
 
-  document.addEventListener("click", () => {
-    cursor?.classList.add("bg-slate-200");
+    document.addEventListener("click", () => {
+      cursor?.classList.add("bg-slate-200");
 
-    setTimeout(() => {
-      cursor?.classList.remove("bg-slate-200");
-    }, 100);
+      setTimeout(() => {
+        cursor?.classList.remove("bg-slate-200");
+      }, 100);
+    });
   });
 </script>
 

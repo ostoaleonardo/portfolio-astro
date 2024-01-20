@@ -12,8 +12,6 @@ const PROJECT = PROJECTS[Number(id) - 1] || PROJECTS[0];
 
 const previusId = id === "1" ? PROJECTS.length : Number(id) - 1;
 const nextId = id === PROJECTS.length.toString() ? 1 : Number(id) + 1;
-
-let currentImageSrc = PROJECT.images[0].src;
 ---
 
 <Layout title="Projects" description="Projects I've worked on.">
@@ -30,41 +28,45 @@ let currentImageSrc = PROJECT.images[0].src;
       <div class="absolute right-0">
         <ProjectCard project={PROJECT} />
       </div>
-      <div class="relative w-2/3 h-full flex items-center justify-center group">
-        <img
-          id="project-image-blur"
-          alt="image of project"
-          src={currentImageSrc}
-          class="absolute w-[70%] h-auto object-contain blur-md group-hover:blur-xl animate-pulse transition-all"
-        />
-        <img
-          id="project-image"
-          alt="image of project"
-          src={currentImageSrc}
-          class="w-[70%] h-auto object-contain z-10"
-        />
+      <div
+        class="relative w-2/3 h-full flex items-center justify-center group overflow-hidden"
+      >
+        <div
+          class="h-full snap-y snap-mandatory overflow-y-auto scroll-smooth scrollbar-hide"
+        >
+          {
+            PROJECT.images.map((image, index) => (
+              <img
+                id={`project-image-${index}`}
+                src={image.src}
+                alt="image of project"
+                class="w-full h-full object-contain snap-center"
+              />
+            ))
+          }
+        </div>
 
         <div
           class="absolute left-0 my-auto flex flex-col items-center text-slate-100/50"
         >
-          <button
+          <a
             id="previus-button"
             class="w-10 h-10 flex items-center justify-center rotate-90 hover:text-slate-100 transition-all"
           >
             <ArrowLeft />
-          </button>
+          </a>
           <div class="text-2xl font-archivo-black inline-flex">
             <span id="project-image-index" class="text-slate-100">1</span>
             <span class="text-slate-100/50">
               /{PROJECT.images.length}
             </span>
           </div>
-          <button
+          <a
             id="next-button"
             class="w-10 h-10 flex items-center justify-center rotate-90 hover:text-slate-100 transition-all"
           >
             <ArrowRight />
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -111,46 +113,39 @@ let currentImageSrc = PROJECT.images[0].src;
 <script>
   import { PROJECTS } from "@/constants/projects";
 
-  const id = document.getElementById("project-id")?.textContent;
+  document.addEventListener("astro:page-load", () => {
+    const id = document.getElementById("project-id")?.textContent;
 
-  const project = PROJECTS[Number(id) - 1] || PROJECTS[0];
+    const project = PROJECTS[Number(id) - 1] || PROJECTS[0];
+    const images = project.images;
 
-  let currentImage = 0;
-  let currentImageSrc = project.images[currentImage].src;
+    let currentImage = 0;
 
-  const spanIndex = document.getElementById(
-    "project-image-index"
-  ) as HTMLSpanElement;
+    const spanIndex = document.getElementById(
+      "project-image-index"
+    ) as HTMLSpanElement;
 
-  const projectImage = document.getElementById(
-    "project-image"
-  ) as HTMLImageElement;
-  const projectImageBlur = document.getElementById(
-    "project-image-blur"
-  ) as HTMLImageElement;
+    const previusButton = document.getElementById(
+      "previus-button"
+    ) as HTMLAnchorElement;
+    const nextButton = document.getElementById(
+      "next-button"
+    ) as HTMLAnchorElement;
 
-  const previusButton = document.getElementById(
-    "previus-button"
-  ) as HTMLButtonElement;
-  const nextButton = document.getElementById(
-    "next-button"
-  ) as HTMLButtonElement;
+    previusButton.addEventListener("click", () => {
+      currentImage = currentImage === 0 ? images.length - 1 : currentImage - 1;
 
-  previusButton.addEventListener("click", () => {
-    currentImage =
-      currentImage === 0 ? project.images.length - 1 : currentImage - 1;
-    currentImageSrc = project.images[currentImage].src;
-    projectImage.src = currentImageSrc;
-    projectImageBlur.src = currentImageSrc;
-    spanIndex.textContent = `${currentImage + 1}`;
-  });
+      spanIndex.textContent = (currentImage + 1).toString();
 
-  nextButton.addEventListener("click", () => {
-    currentImage =
-      currentImage === project.images.length - 1 ? 0 : currentImage + 1;
-    currentImageSrc = project.images[currentImage].src;
-    projectImage.src = currentImageSrc;
-    projectImageBlur.src = currentImageSrc;
-    spanIndex.textContent = `${currentImage + 1}`;
+      previusButton.href = "#project-image-" + currentImage;
+    });
+
+    nextButton.addEventListener("click", () => {
+      currentImage = currentImage === images.length - 1 ? 0 : currentImage + 1;
+
+      spanIndex.textContent = (currentImage + 1).toString();
+
+      nextButton.href = "#project-image-" + currentImage;
+    });
   });
 </script>
