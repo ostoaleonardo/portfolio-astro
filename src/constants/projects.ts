@@ -36,7 +36,7 @@ export const PROJECTS = [
             wavestify1,
             wavestify2,
         ],
-        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind', 'Framer Motion'],
+        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind'],
         demo: 'https://wavestify.vercel.app/',
         github: 'https://github.com/ostoaleonardo/spotify-stats',
     },
@@ -44,7 +44,7 @@ export const PROJECTS = [
         title: 'E-commerce',
         type: 'Web app',
         description: 'A web app that simulates an e-commerce store, where you can add products to the cart and make a purchase.',
-        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind', 'Framer Motion'],
+        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind'],
         images: [
             store1,
             store2,
@@ -57,7 +57,7 @@ export const PROJECTS = [
         title: 'Movies Stats',
         type: 'Web app',
         description: 'A web app that shows movies stats, like the most popular movies, the best rated, etc.',
-        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind', 'Framer Motion'],
+        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind'],
         images: [
             movies1,
             movies2,
