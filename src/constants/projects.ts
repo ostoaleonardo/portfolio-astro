@@ -17,7 +17,7 @@ export const PROJECTS = [
     {
         title: 'Tailtools',
         type: 'Web app',
-        description: 'A web app that you can use to generate color palettes, gradients, and more for Tailwind CSS.',
+        description: 'A collection of tools to generate code for Tailwind CSS.',
         images: [
             tailtools1,
             tailtools2,
@@ -25,7 +25,7 @@ export const PROJECTS = [
             tailtools4,
         ],
         technologies: ['React', 'TypeScript', 'Tailwind', 'NextUI'],
-        demo: 'https://tailtools.vercel.app/',
+        demo: 'https://tailtools.app/',
         github: 'https://github.com/ostoaleonardo/tailtools',
     },
     {
