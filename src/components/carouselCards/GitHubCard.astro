@@ -1,5 +1,5 @@
 ---
-import BorderCard from "../borderCard/BorderCard.astro";
+import BorderCard from "../borderCard/BorderCard";
 import TitleCard from "../borderCard/TitleCard.astro";
 import IconCard from "../borderCard/IconCard.astro";
 
@@ -21,9 +21,19 @@ const getMonths = () => {
 
   return months;
 };
+
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
-<BorderCard size="medium" titleTop="GitHub">
+<BorderCard
+  client:load
+  size="medium"
+  title="GitHub"
+  subtitle={i18n.SOCIAL_CARD.SUBTITLE}
+  titleTop="GitHub"
+>
   <a
     target="_blank"
     aria-label="GitHub profile"

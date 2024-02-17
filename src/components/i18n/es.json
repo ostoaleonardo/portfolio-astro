@@ -31,13 +31,9 @@
         "FOOTER": "Años de experiencia"
     },
     "SPOTIFY_CARD": {
-        "TITLE": "Spotify",
         "SUBTITLE": "Escuchando"
     },
     "WEATHER_CARD": {
         "TITLE": "Clima"
-    },
-    "CHAT_AI_MODAL": {
-        "TITLE": "Chatea con mi bot de IA"
     }
 }

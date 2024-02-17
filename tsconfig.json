@@ -1,10 +1,16 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "C:/Users/OstoaLeonardo/Desktop/projects/portfolio-astro",
     "paths": {
-      "@/icons/*": ["src/components/icons/*"],
-      "@/*": ["src/*"],
-    }
+      "@/icons/*": [
+        "src/components/icons/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

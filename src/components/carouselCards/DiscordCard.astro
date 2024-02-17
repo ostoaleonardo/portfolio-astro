@@ -1,5 +1,5 @@
 ---
-import BorderCard from "../borderCard/BorderCard.astro";
+import BorderCard from "../borderCard/BorderCard";
 import Discord from "@/icons/Discord.astro";
 
 import { getDiscordStatus } from "@/api/discord";
@@ -7,7 +7,13 @@ import { getDiscordStatus } from "@/api/discord";
 const discord = await getDiscordStatus();
 ---
 
-<BorderCard size="small" titleBottom="Discord">
+<BorderCard
+  client:load
+  size="small"
+  title="Discord"
+  subtitle={discord?.status}
+  titleBottom="Discord"
+>
   <div
     class="w-full h-full flex justify-center items-center text-slate-100 bg-discord-light dark:bg-discord-dark"
   >

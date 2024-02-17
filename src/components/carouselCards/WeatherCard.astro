@@ -1,5 +1,5 @@
 ---
-import BorderCard from "../borderCard/BorderCard.astro";
+import BorderCard from "../borderCard/BorderCard";
 import WeatherWidget from "../carouselCards/WeatherWidget.astro";
 
 import { getWeather } from "@/api/openWeather.ts";
@@ -7,11 +7,14 @@ import { getWeather } from "@/api/openWeather.ts";
 const { currentLocale } = Astro;
 
 const weather = await getWeather(currentLocale);
-
 const isNight = weather?.icon.includes("n");
+const temp = Math.round(weather?.temp) + "°C";
+
+import { getI18N } from "../i18n";
+const i18n = getI18N({ currentLocale });
 ---
 
-<BorderCard size="medium">
+<BorderCard client:load title={i18n.WEATHER_CARD.TITLE} subtitle={temp}>
   <div class="relative w-full h-full flex items-center">
     <WeatherWidget isNight={isNight} />
     <div class="absolute flex flex-col p-4 sm:p-6 md:p-10 md:gap-1 z-50">
@@ -25,7 +28,7 @@ const isNight = weather?.icon.includes("n");
             },
           ]}
         >
-          {Math.round(weather?.temp) + "°C"}
+          {temp}
         </span>
         <img
           src={weather?.icon}

@@ -1,5 +1,5 @@
 ---
-import BorderCard from "../borderCard/BorderCard.astro";
+import BorderCard from "../borderCard/BorderCard";
 import HTML5 from "@/icons/HTML5.astro";
 import CSS3 from "@/icons/CSS3.astro";
 import JavaScript from "@/icons/JavaScript.astro";
@@ -9,9 +9,18 @@ import NextJs from "@/icons/NextJs.astro";
 import Expo from "@/icons/Expo.astro";
 import GitHub from "@/icons/GitHub.astro";
 import Figma from "@/icons/Figma.astro";
+
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
-<BorderCard size="small">
+<BorderCard
+  client:load
+  size="small"
+  title={i18n.TECHNOLOGIES_CARD.TITLE}
+  subtitle={i18n.TECHNOLOGIES_CARD.SUBTITLE}
+>
   <div
     class="w-full h-full grid grid-cols-4 items-center justify-center gap-2 text-slate-100 bg-neutral-800 p-2 md:p-5"
   >
