@@ -2,7 +2,7 @@ import { useTitleStore } from "@/store/titleStore";
 
 interface Props {
   size?: "small" | "medium";
-  title?: string;
+  title: string;
   subtitle?: string;
   titleTop?: string;
   titleBottom?: string;
