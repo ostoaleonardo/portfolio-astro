@@ -4,8 +4,8 @@ interface Props {
   description: string;
 }
 
-import { ViewTransitions } from 'astro:transitions';
-import Cursor from '@/components/cursor/Cursor.astro';
+import { ViewTransitions } from "astro:transitions";
+import Cursor from "@/components/cursor/Cursor.astro";
 
 const { title, description } = Astro.props;
 const { currentLocale } = Astro;
@@ -17,54 +17,78 @@ const { currentLocale } = Astro;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/ArchivoBlack.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Oswald.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <title>{title}</title>
     <ViewTransitions />
   </head>
   <body class="bg-neutral-900 bg-pattern bg-repeat select-none">
     <slot />
     <Cursor />
+    <style is:global>
+      @font-face {
+        font-family: "Archivo Black";
+        font-style: normal;
+        font-weight: 900;
+        src: url("/src/assets/fonts/ArchivoBlack.woff2") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Oswald";
+        font-style: normal;
+        font-weight: 400;
+        src: url("/src/assets/fonts/Oswald.woff2") format("woff2");
+      }
+
+      .font-outline-1 {
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+      }
+
+      .font-outline-2 {
+        -webkit-text-stroke: 2px white;
+        color: transparent;
+      }
+
+      .font-outline-4 {
+        -webkit-text-stroke: 4px white;
+        color: transparent;
+      }
+
+      .font-archivo-black {
+        font-family: "Archivo Black", sans-serif;
+      }
+
+      .font-oswald {
+        font-family: "Oswald", sans-serif;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
-
-  .font-outline-1 {
-    -webkit-text-stroke: 1px white;
-    color: transparent;
-  }
-
-  .font-outline-2 {
-    -webkit-text-stroke: 2px white;
-    color: transparent;
-  }
-
-  .font-outline-4 {
-    -webkit-text-stroke: 4px white;
-    color: transparent;
-  }
-
-  .font-archivo-black {
-    font-family: "Archivo Black", sans-serif;
-  }
-
-  .font-oswald {
-    font-family: "Oswald", sans-serif;
-  }
-
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-</style>
