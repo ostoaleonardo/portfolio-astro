@@ -21,8 +21,8 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="min-w-96 max-w-96 flex flex-col justify-between">
-  <header class="flex flex-col bg-zinc-900 p-4">
+<article class="w-full max-w-96 flex flex-col items-center">
+  <header class="w-full flex flex-col bg-zinc-900 p-4">
     <div class="w-full flex flex-row justify-between">
       <h2
         id="project-card-title"
@@ -62,7 +62,7 @@ const { project } = Astro.props;
     <li class="w-[5%] h-24 bg-zinc-700 rotate-45"></li>
     <li class="w-[5%] h-24 bg-zinc-700 rotate-45"></li>
   </ul>
-  <section class="flex flex-col bg-zinc-700 p-4">
+  <section class="w-full flex flex-col bg-zinc-700 p-4">
     <section class="flex flex-wrap gap-1 mt-1">
       {project.technologies.map((technology) => <Chip label={technology} />)}
     </section>
