@@ -16,9 +16,7 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<div
-  class="h-full flex flex-row overflow-x-auto overflow-y-hidden scrollbar-hide"
->
+<div class="flex bg-white/5 overflow-auto scrollbar-hide">
   <AboutMeCard />
   <InfoCard
     header={i18n.YEARS_OLD_CARD.HEADER}

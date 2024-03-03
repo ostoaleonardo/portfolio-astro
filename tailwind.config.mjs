@@ -29,6 +29,25 @@ export default {
 				'github-card': "url('/src/assets/images/github.webp')",
 				'projects-card': "url('/src/assets/images/projects.webp')",
 			},
+			animation: {
+				typewriter: 'typewriter 2s steps(22) forwards',
+				caret: 'typewriter 2s steps(22) forwards, blink 1s steps(2) infinite 2s',
+			},
+			keyframes: {
+				typewriter: {
+					to: {
+						left: '100%'
+					}
+				},
+				blink: {
+					'0%': {
+						height: '0%',
+					},
+					'100%': {
+						height: 'auto',
+					},
+				}
+			},
 		},
 	},
 	darkMode: 'class',

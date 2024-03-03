@@ -19,40 +19,11 @@ const i18n = getI18N({ currentLocale });
     <div class="w-full h-full flex flex-col justify-end">
       <div class="w-fit flex items-center">
         <span
-          class="text-xs text-neutral-200 font-mono flex whitespace-nowrap line-clamp-1 typing"
+          class="relative text-xs text-slate-200 font-mono before:absolute before:inset-0 before:bg-white before:dark:bg-neutral-800 before:animate-typewriter after:absolute after:inset-0 after:dark:bg-green-500 after:w-0.5 after:animate-caret transition-all"
         >
-          npm install everything
+          npm run dev
         </span>
-        <div class="w-2 h-4 bg-green-600 pulse"></div>
       </div>
     </div>
   </a>
 </BorderCard>
-
-<style>
-  .typing {
-    animation: typing 3s steps(40, end) normal;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  .pulse {
-    animation: pulse 1s ease-out infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-</style>
