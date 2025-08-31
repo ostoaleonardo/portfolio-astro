@@ -20,7 +20,7 @@ const i18n = getI18N({ currentLocale });
   <AboutMeCard />
   <InfoCard
     header={i18n.YEARS_OLD_CARD.HEADER}
-    body="21"
+    body={new Date().getFullYear() - 2002 + ""}
     footer={i18n.YEARS_OLD_CARD.FOOTER}
     backgroundColor="bg-purple-600 dark:bg-purple-900"
   />
