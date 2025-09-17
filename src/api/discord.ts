@@ -37,7 +37,7 @@ const formatDiscordStatus = (discord: any) => {
     return {
         status: discord_status,
         activity: name,
-        details,
+        details: details ?? spotify?.song,
         image
     }
 }

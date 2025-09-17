@@ -5,8 +5,6 @@ import tailtools4 from '@/assets/projects/tailtools4.webp';
 import notes1 from '@/assets/projects/notes1.webp';
 import notes2 from '@/assets/projects/notes2.webp';
 import notes3 from '@/assets/projects/notes3.webp';
-import wavestify1 from '@/assets/projects/wavestify1.webp';
-import wavestify2 from '@/assets/projects/wavestify2.webp';
 
 export const PROJECTS = [
     {
@@ -35,17 +33,5 @@ export const PROJECTS = [
         technologies: ['Expo', 'React Native', 'JavaScript'],
         demo: 'https://play.google.com/store/apps/details?id=com.monospace.notes',
         github: 'https://github.com/ostoaleonardo/notes'
-    },
-    {
-        title: 'Wavestify',
-        type: 'Web app',
-        description: 'A web app that shows your Spotify stats.',
-        images: [
-            wavestify1,
-            wavestify2
-        ],
-        technologies: ['React', 'JavaScript', 'NextUI', 'Tailwind'],
-        demo: 'https://wavestify.vercel.app/',
-        github: 'https://github.com/ostoaleonardo/spotify-stats'
     }
 ]
