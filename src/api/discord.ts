@@ -25,14 +25,13 @@ const formatDiscordStatus = (discord: any) => {
 
     const { spotify } = discord
     const { name, details, assets, application_id } = activities[0]
-    const { large_image } = assets
     let image = ""
 
     if (spotify) {
         const { album_art_url } = spotify
         image = album_art_url
     } else {
-        image = ASSETS_URL + application_id + "/" + large_image
+        image = ASSETS_URL + application_id + "/" + assets?.large_image
     }
 
     return {
